@@ -5,9 +5,7 @@ const HomeFilledButtonStyle = styled.button`
   place-items: center;
   width: 200px;
   height: 45px;
-  position: fixed;
-  bottom: 85px;
-  left: calc((100% - 200px) / 2);
+  margin: 0 auto;
   border: none;
   border-radius: 10px;
   background-color: hsla(233, 69%, 73%, 1);

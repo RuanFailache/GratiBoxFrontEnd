@@ -3,9 +3,7 @@ import styled from 'styled-components';
 const HomeLinkStyle = styled.button`
   display: block;
   width: 120px;
-  position: fixed;
-  left: calc((100% - 120px) / 2);
-  bottom: 51px;
+  margin: 15px auto 60px;
   border: none;
   background-color: transparent;
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ContainerStyle from '../CommonStyles/ContainerStyle';
 import HomeTitleStyle from './HomeTitleStyle';
 import DescriptionStyle from '../CommonStyles/DescriptionStyle';
+import HomeFooterStyle from './HomeFooterStyle';
 import BackgroundImageStyle from './BackgroundImageStyle';
 import HomeFilledButtonStyle from './HomeFilledButtonStyle';
 import HomeLinkStyle from './HomeLinkStyle';
@@ -21,15 +22,17 @@ const Home = function () {
         <p>Receba em casa um box com chás, produtos organicos, incensos e muito mais...</p>
       </DescriptionStyle>
 
-      <BackgroundImageStyle src={backgroundImage} alt="" />
+      <HomeFooterStyle>
+        <BackgroundImageStyle src={backgroundImage} alt="" />
 
-      <HomeFilledButtonStyle>
-        <Link to="/sign-up">Quero começar</Link>
-      </HomeFilledButtonStyle>
+        <HomeFilledButtonStyle>
+          <Link to="/sign-up">Quero começar</Link>
+        </HomeFilledButtonStyle>
 
-      <HomeLinkStyle>
-        <Link to="/sign-in">Já sou grato</Link>
-      </HomeLinkStyle>
+        <HomeLinkStyle>
+          <Link to="/sign-in">Já sou grato</Link>
+        </HomeLinkStyle>
+      </HomeFooterStyle>
     </ContainerStyle>
   );
 };
