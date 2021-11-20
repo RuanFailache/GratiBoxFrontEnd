@@ -7,8 +7,8 @@ export const ContainerStyle = styled.div`
 `;
 
 export const TitleStyle = styled.header`
-  margin-top: 51px;
-  margin-bottom: 45px;
+  margin-top: 101px;
+  margin-bottom: 30px;
 
   & > h1 {
     font-weight: 500;
@@ -62,4 +62,12 @@ export const FilledButtonStyle = styled.button`
     color: hsla(0, 0%, 100%, 1);
     text-decoration: none;
   }
+`;
+
+export const DescriptionStyle = styled.article`
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 300;
+  text-align: center;
+  color: hsla(0, 0%, 100%, 1);
 `;

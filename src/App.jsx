@@ -1,7 +1,7 @@
 import './assets/styles/reset.css';
 import './assets/styles/style.css';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import {
   BrowserRouter,
@@ -13,19 +13,27 @@ import Home from './components/Home/Home';
 import SignIn from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp';
 import Signature from './components/Signatures/Signature';
+import UserContext from './contexts/UserContext';
 
 const App = function () {
   const [userInfo, setUserInfo] = useState(null);
 
+  const userPack = useMemo(() => ({
+    userInfo,
+    setUserInfo,
+  }), [userInfo]);
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="sign-in" element={<SignIn setUserInfo={setUserInfo} />} />
-        <Route path="sign-up" element={<SignUp />} />
-        <Route path="signature" element={<Signature userInfo={userInfo} />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
+      <UserContext.Provider value={userPack}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="sign-in" element={<SignIn />} />
+          <Route path="sign-up" element={<SignUp />} />
+          <Route path="signature" element={<Signature />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </UserContext.Provider>
     </BrowserRouter>
   );
 };

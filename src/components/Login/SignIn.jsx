@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import {
@@ -16,10 +16,14 @@ import {
 
 import { checkUserToSignIn } from '../../services/api';
 
-const SignIn = function ({ setUserInfo }) {
+import UserContext from '../../contexts/UserContext';
+
+const SignIn = function () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+
+  const { setUserInfo } = useContext(UserContext);
 
   const navigate = useNavigate();
 
