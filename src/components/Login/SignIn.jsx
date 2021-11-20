@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import {
   ContainerStyle,
@@ -19,6 +19,9 @@ import { checkUserToSignIn } from '../../services/api';
 const SignIn = function ({ setUserInfo }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmitForm = async (event) => {
     event.preventDefault();
@@ -27,10 +30,18 @@ const SignIn = function ({ setUserInfo }) {
         email,
         password,
       });
-      console.log(result.data);
-      return setUserInfo({ ...result.data });
+
+      setUserInfo({ ...result.data });
+      return navigate('/');
     } catch (err) {
-      return err;
+      const { status } = err.response;
+
+      if (status === 400) {
+        return setMessage('Dados inseridos inválidos! O email deve ser no formato xxx@xxx.com e a senha deve possuir ao menos 6 digitos.');
+      } if (status === 404) {
+        return setMessage('Email e/ou senhas inseridos inválidos!');
+      }
+      return setMessage('Houve algum erro interno! Contate o suporte.');
     }
   };
 
@@ -38,6 +49,7 @@ const SignIn = function ({ setUserInfo }) {
     <ContainerStyle>
       <TitleStyle>
         <h1>Bem vindo ao GratiBox</h1>
+        {message !== '' ? <strong>{message}</strong> : null}
       </TitleStyle>
 
       <LoginFormStyle onSubmit={handleSubmitForm}>

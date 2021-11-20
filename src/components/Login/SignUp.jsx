@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   ContainerStyle,
   TitleStyle,
   FilledButtonStyle,
+  LinkStyle,
 } from '../Styles';
 
 import {
@@ -28,7 +30,7 @@ const SignUp = function () {
     }
 
     if (password !== confirmPassword) {
-      return 1;
+      return setMessage('A senha de confirmação está diferente da senha colocada!');
     }
     try {
       await registerNewUser({
@@ -65,6 +67,10 @@ const SignUp = function () {
 
         <LoginFooterStyle>
           <FilledButtonStyle type="submit">Cadastrar</FilledButtonStyle>
+
+          <LinkStyle>
+            <Link to="/sign-in">Já sou grato</Link>
+          </LinkStyle>
         </LoginFooterStyle>
       </LoginFormStyle>
     </ContainerStyle>
