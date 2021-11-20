@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import ContainerStyle from '../CommonStyles/ContainerStyle';
-import HomeTitleStyle from './HomeTitleStyle';
 import DescriptionStyle from '../CommonStyles/DescriptionStyle';
-import HomeFooterStyle from './HomeFooterStyle';
-import BackgroundImageStyle from './BackgroundImageStyle';
-import HomeFilledButtonStyle from './HomeFilledButtonStyle';
-import HomeLinkStyle from './HomeLinkStyle';
+
+import {
+  HomeTitleStyle,
+  HomeFilledButtonStyle,
+  BackgroundImageStyle,
+  HomeLinkStyle,
+  HomeFooterStyle,
+} from './HomeStyle';
 
 import backgroundImage from '../../assets/images/meditation_woman.jpg';
 
