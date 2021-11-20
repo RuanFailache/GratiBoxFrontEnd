@@ -14,13 +14,24 @@ import {
   LoginFooterStyle,
 } from './LoginStyles';
 
-const SignIn = function () {
+import { checkUserToSignIn } from '../../services/api';
+
+const SignIn = function ({ setUserInfo }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmitForm = (event) => {
+  const handleSubmitForm = async (event) => {
     event.preventDefault();
-    return 2;
+    try {
+      const result = await checkUserToSignIn({
+        email,
+        password,
+      });
+      console.log(result.data);
+      return setUserInfo({ ...result.data });
+    } catch (err) {
+      return err;
+    }
   };
 
   return (

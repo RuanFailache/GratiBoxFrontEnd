@@ -17,6 +17,16 @@ export const TitleStyle = styled.header`
     text-align: center;
     color: hsla(0, 0%, 100%, 1);
   }
+
+  & > strong {
+    display: block;
+    margin: 7.5px auto 0;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 500;
+    text-align: center;
+    color: hsla(0, 0%, 100%, 1);
+  }
 `;
 
 export const LinkStyle = styled.button`
