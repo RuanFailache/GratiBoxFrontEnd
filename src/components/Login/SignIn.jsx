@@ -32,7 +32,7 @@ const SignIn = function ({ setUserInfo }) {
       });
 
       setUserInfo({ ...result.data });
-      return navigate('/');
+      return navigate('/signature');
     } catch (err) {
       const { status } = err.response;
 
