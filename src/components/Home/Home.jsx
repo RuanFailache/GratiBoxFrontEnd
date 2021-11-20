@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import ContainerStyle from '../CommonStyles/ContainerStyle';
-import DescriptionStyle from '../CommonStyles/DescriptionStyle';
+import {
+  ContainerStyle,
+  TitleStyle,
+  LinkStyle,
+  FilledButtonStyle,
+} from '../Styles';
 
 import {
-  HomeTitleStyle,
-  HomeFilledButtonStyle,
   BackgroundImageStyle,
-  HomeLinkStyle,
   HomeFooterStyle,
+  HomeDescriptionStyle,
 } from './HomeStyle';
 
 import backgroundImage from '../../assets/images/meditation_woman.jpg';
@@ -17,24 +19,24 @@ import backgroundImage from '../../assets/images/meditation_woman.jpg';
 const Home = function () {
   return (
     <ContainerStyle>
-      <HomeTitleStyle>
+      <TitleStyle>
         <h1>Bem vindo ao GratiBox</h1>
-      </HomeTitleStyle>
+      </TitleStyle>
 
-      <DescriptionStyle>
+      <HomeDescriptionStyle>
         <p>Receba em casa um box com chás, produtos organicos, incensos e muito mais...</p>
-      </DescriptionStyle>
+      </HomeDescriptionStyle>
 
       <HomeFooterStyle>
         <BackgroundImageStyle src={backgroundImage} alt="" />
 
-        <HomeFilledButtonStyle>
+        <FilledButtonStyle>
           <Link to="/sign-up">Quero começar</Link>
-        </HomeFilledButtonStyle>
+        </FilledButtonStyle>
 
-        <HomeLinkStyle>
+        <LinkStyle>
           <Link to="/sign-in">Já sou grato</Link>
-        </HomeLinkStyle>
+        </LinkStyle>
       </HomeFooterStyle>
     </ContainerStyle>
   );
