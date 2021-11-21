@@ -16,6 +16,7 @@ import SignatureOptions from './components/Signatures/SignatureOptions';
 import SignaturePlans from './components/Signatures/SignaturePlans';
 
 import UserContext from './contexts/UserContext';
+import PlanContext from './contexts/PlanContext';
 
 const App = function () {
   const [userInfo, setUserInfo] = useState(null);
@@ -25,6 +26,17 @@ const App = function () {
     setUserInfo,
   }), [userInfo]);
 
+  const [plan, setPlan] = useState({
+    type: null,
+    receive: null,
+    itensDelivery: [],
+  });
+
+  const planState = useMemo(() => ({
+    plan,
+    setPlan,
+  }), [plan]);
+
   return (
     <BrowserRouter>
       <UserContext.Provider value={userInfoState}>
@@ -32,8 +44,11 @@ const App = function () {
           <Route path="/" element={<Home />} />
           <Route path="sign-in" element={<SignIn />} />
           <Route path="sign-up" element={<SignUp />} />
-          <Route path="signature" element={<SignaturePlans />} />
-          <Route path="signature/options" element={<SignatureOptions />} />
+
+          <PlanContext.Provider value={planState}>
+            <Route path="signature" element={<SignaturePlans />} />
+            <Route path="signature/options" element={<SignatureOptions />} />
+          </PlanContext.Provider>
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>

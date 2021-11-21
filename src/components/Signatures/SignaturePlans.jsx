@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import Signature from './Signature';
+
 import { ContainerStyle, FilledButtonStyle } from '../Styles';
 
 import {
@@ -11,23 +13,18 @@ import {
 
 import gardenWoman from '../../assets/images/garden_woman.svg';
 import bedroomWoman from '../../assets/images/bedroom_woman.svg';
-import UserContext from '../../contexts/UserContext';
-import Signature from './Signature';
+
+import PlanContext from '../../contexts/PlanContext';
 
 const SignaturePlans = function () {
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  const { plan, setPlan } = useContext(PlanContext);
 
   const navigate = useNavigate();
 
   const handleButtonClick = (signatureType) => {
-    const { token, user } = userInfo;
-
-    setUserInfo({
-      token,
-      user: {
-        ...user,
-        idPlan: signatureType === 'semanal' ? 1 : 2,
-      },
+    setPlan({
+      ...plan,
+      type: signatureType,
     });
 
     navigate('/signature/options');
