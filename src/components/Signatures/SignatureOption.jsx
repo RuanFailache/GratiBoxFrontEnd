@@ -40,9 +40,7 @@ const SignatureOption = function ({
   };
 
   return (
-    <SignatureOptionStyle
-      height={isSelected ? '111px' : '44px'}
-    >
+    <SignatureOptionStyle height={isSelected ? '111px' : '44px'}>
       <SignatureFlexStyle onClick={() => handleClick(type)}>
         <strong>{title}</strong>
         {!isSelected ? <img src={arrow} alt="" /> : null}
@@ -51,23 +49,44 @@ const SignatureOption = function ({
       {isSelected ? (
         <SignatureBoxOptionsStyle>
           <SignatureCheckboxStyle
-            onClick={() => handleChangeStateCheckbox(isFirstChecked, setIsFirstChecked)}
+            onClick={() => handleChangeStateCheckbox(
+              isFirstChecked,
+              setIsFirstChecked,
+            )}
           >
-            <input type="radio" checked={isFirstChecked} onChange={() => { }} />
+            <input
+              type="radio"
+              checked={isFirstChecked}
+              onChange={() => { }}
+            />
             {options[0]}
           </SignatureCheckboxStyle>
 
           <SignatureCheckboxStyle
-            onClick={() => handleChangeStateCheckbox(isSecondChecked, setIsSecondChecked)}
+            onClick={() => handleChangeStateCheckbox(
+              isSecondChecked,
+              setIsSecondChecked,
+            )}
           >
-            <input type="radio" checked={isSecondChecked} onChange={() => { }} />
+            <input
+              type="radio"
+              checked={isSecondChecked}
+              onChange={() => { }}
+            />
             {options[1]}
           </SignatureCheckboxStyle>
 
           <SignatureCheckboxStyle
-            onClick={() => handleChangeStateCheckbox(isThirdChecked, setIsThirdChecked)}
+            onClick={() => handleChangeStateCheckbox(
+              isThirdChecked,
+              setIsThirdChecked,
+            )}
           >
-            <input type="radio" checked={isThirdChecked} onChange={() => { }} />
+            <input
+              type="radio"
+              checked={isThirdChecked}
+              onChange={() => { }}
+            />
             {options[2]}
           </SignatureCheckboxStyle>
         </SignatureBoxOptionsStyle>

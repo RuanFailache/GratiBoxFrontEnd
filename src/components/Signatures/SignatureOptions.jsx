@@ -45,7 +45,9 @@ const SignatureOptions = function () {
           <SignatureOption
             isSelected={isDeliverySelected}
             handleClick={handleClick}
-            options={plan.type === 'semanal' ? ['Segunda', 'Quarta', 'Sexta'] : ['Dia 01', 'Dia 10', 'Dia 20']}
+            options={plan.type === 'semanal'
+              ? ['Segunda', 'Quarta', 'Sexta']
+              : ['Dia 01', 'Dia 10', 'Dia 20']}
             type="delivery"
             title="Entrega"
           />
