@@ -40,16 +40,15 @@ const App = function () {
   return (
     <BrowserRouter>
       <UserContext.Provider value={userInfoState}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="sign-in" element={<SignIn />} />
-          <Route path="sign-up" element={<SignUp />} />
-
-          <PlanContext.Provider value={planState}>
+        <PlanContext.Provider value={planState}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="sign-in" element={<SignIn />} />
+            <Route path="sign-up" element={<SignUp />} />
             <Route path="signature" element={<SignaturePlans />} />
             <Route path="signature/options" element={<SignatureOptions />} />
-          </PlanContext.Provider>
-        </Routes>
+          </Routes>
+        </PlanContext.Provider>
       </UserContext.Provider>
     </BrowserRouter>
   );

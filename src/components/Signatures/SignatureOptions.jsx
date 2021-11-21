@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import {
   ContainerStyle,
@@ -14,10 +15,15 @@ import Signature from './Signature';
 import SignatureOption from './SignatureOption';
 
 import woman from '../../assets/images/woman.svg';
+import PlanContext from '../../contexts/PlanContext';
 
 const SignatureOptions = function () {
   const [isDeliverySelected, setIsDeliverySelected] = useState(true);
   const [isReceiveSelected, setIsReceiveSelected] = useState(false);
+
+  const { plan } = useContext(PlanContext);
+
+  const navigate = useNavigate();
 
   const handleClick = (box) => {
     if (box === 'delivery') {
@@ -39,7 +45,7 @@ const SignatureOptions = function () {
           <SignatureOption
             isSelected={isDeliverySelected}
             handleClick={handleClick}
-            options={['Segunda', 'Quarta', 'Sexta']}
+            options={plan.type === 'semanal' ? ['Segunda', 'Quarta', 'Sexta'] : ['Dia 01', 'Dia 10', 'Dia 20']}
             type="delivery"
             title="Entrega"
           />
@@ -55,7 +61,7 @@ const SignatureOptions = function () {
       </SignatureOptionsStyle>
 
       <SignatureControlsStyle>
-        <FilledButtonStyle>Anterior</FilledButtonStyle>
+        <FilledButtonStyle onClick={() => navigate(-1)}>Anterior</FilledButtonStyle>
         <FilledButtonStyle>Proximo</FilledButtonStyle>
       </SignatureControlsStyle>
     </ContainerStyle>

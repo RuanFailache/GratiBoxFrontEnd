@@ -9,6 +9,8 @@ import {
 
 import arrow from '../../assets/images/arrow.svg';
 
+import usePutPlanValuesInContext from '../../hooks/usePutPlanValuesInContext';
+
 const SignatureOption = function ({
   isSelected,
   handleClick,
@@ -19,6 +21,23 @@ const SignatureOption = function ({
   const [isFirstChecked, setIsFirstChecked] = useState(false);
   const [isSecondChecked, setIsSecondChecked] = useState(false);
   const [isThirdChecked, setIsThirdChecked] = useState(false);
+
+  usePutPlanValuesInContext(
+    type,
+    options,
+    isFirstChecked,
+    isSecondChecked,
+    isThirdChecked,
+  );
+
+  const handleChangeStateCheckbox = (state, changeState) => {
+    if (type === 'delivery') {
+      setIsFirstChecked(false);
+      setIsSecondChecked(false);
+      setIsThirdChecked(false);
+    }
+    changeState(!state);
+  };
 
   return (
     <SignatureOptionStyle
@@ -32,23 +51,23 @@ const SignatureOption = function ({
       {isSelected ? (
         <SignatureBoxOptionsStyle>
           <SignatureCheckboxStyle
-            onClick={() => setIsFirstChecked(!isFirstChecked)}
+            onClick={() => handleChangeStateCheckbox(isFirstChecked, setIsFirstChecked)}
           >
-            <input type="radio" checked={isFirstChecked} />
+            <input type="radio" checked={isFirstChecked} onChange={() => { }} />
             {options[0]}
           </SignatureCheckboxStyle>
 
           <SignatureCheckboxStyle
-            onClick={() => setIsSecondChecked(!isSecondChecked)}
+            onClick={() => handleChangeStateCheckbox(isSecondChecked, setIsSecondChecked)}
           >
-            <input type="radio" checked={isSecondChecked} />
+            <input type="radio" checked={isSecondChecked} onChange={() => { }} />
             {options[1]}
           </SignatureCheckboxStyle>
 
           <SignatureCheckboxStyle
-            onClick={() => setIsThirdChecked(!isThirdChecked)}
+            onClick={() => handleChangeStateCheckbox(isThirdChecked, setIsThirdChecked)}
           >
-            <input type="radio" checked={isThirdChecked} />
+            <input type="radio" checked={isThirdChecked} onChange={() => { }} />
             {options[2]}
           </SignatureCheckboxStyle>
         </SignatureBoxOptionsStyle>
