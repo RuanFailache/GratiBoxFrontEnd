@@ -21,11 +21,11 @@ const Home = function () {
     <ContainerStyle>
       <HomeTitleStyle>
         <h1>Bem vindo ao GratiBox</h1>
-      </HomeTitleStyle>
 
-      <DescriptionStyle>
-        <p>Receba em casa um box com chás, produtos organicos, incensos e muito mais...</p>
-      </DescriptionStyle>
+        <DescriptionStyle>
+          <p>Receba em casa um box com chás, produtos organicos, incensos e muito mais...</p>
+        </DescriptionStyle>
+      </HomeTitleStyle>
 
       <HomeFooterStyle>
         <BackgroundImageStyle src={backgroundImage} alt="" />

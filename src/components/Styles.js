@@ -65,6 +65,7 @@ export const FilledButtonStyle = styled.button`
 `;
 
 export const DescriptionStyle = styled.article`
+  margin-top: 30px;
   font-size: 18px;
   line-height: 21px;
   font-weight: 300;

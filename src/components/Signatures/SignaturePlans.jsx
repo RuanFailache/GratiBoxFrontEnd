@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { FilledButtonStyle } from '../Styles';
+import { ContainerStyle, FilledButtonStyle } from '../Styles';
 
 import {
   SignatureDescriptionStyle,
@@ -12,6 +12,7 @@ import {
 import gardenWoman from '../../assets/images/garden_woman.svg';
 import bedroomWoman from '../../assets/images/bedroom_woman.svg';
 import UserContext from '../../contexts/UserContext';
+import Signature from './Signature';
 
 const SignaturePlans = function () {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -33,31 +34,35 @@ const SignaturePlans = function () {
   };
 
   return (
-    <SignaturePlansStyle>
-      <SignaturePlanStyle>
-        <img src={gardenWoman} alt="" />
-        <SignatureDescriptionStyle>
-          Você recebe um box por semana.
-          Ideal para quem quer exercer a gratidão todos os dias.
-        </SignatureDescriptionStyle>
-        <FilledButtonStyle onClick={() => handleButtonClick('semanal')}>
-          Assinar
-        </FilledButtonStyle>
-      </SignaturePlanStyle>
+    <ContainerStyle>
+      <Signature text="Você ainda não assinou um plano, que tal começar agora?" />
 
-      <SignaturePlanStyle>
-        <img src={bedroomWoman} alt="" />
-        <SignatureDescriptionStyle>
-          Você recebe um box por mês.
-        </SignatureDescriptionStyle>
-        <SignatureDescriptionStyle>
-          Ideal para quem está começando agora.
-        </SignatureDescriptionStyle>
-        <FilledButtonStyle onClick={() => handleButtonClick('mensal')}>
-          Assinar
-        </FilledButtonStyle>
-      </SignaturePlanStyle>
-    </SignaturePlansStyle>
+      <SignaturePlansStyle>
+        <SignaturePlanStyle>
+          <img src={gardenWoman} alt="" />
+          <SignatureDescriptionStyle>
+            Você recebe um box por semana.
+            Ideal para quem quer exercer a gratidão todos os dias.
+          </SignatureDescriptionStyle>
+          <FilledButtonStyle onClick={() => handleButtonClick('semanal')}>
+            Assinar
+          </FilledButtonStyle>
+        </SignaturePlanStyle>
+
+        <SignaturePlanStyle>
+          <img src={bedroomWoman} alt="" />
+          <SignatureDescriptionStyle>
+            Você recebe um box por mês.
+          </SignatureDescriptionStyle>
+          <SignatureDescriptionStyle>
+            Ideal para quem está começando agora.
+          </SignatureDescriptionStyle>
+          <FilledButtonStyle onClick={() => handleButtonClick('mensal')}>
+            Assinar
+          </FilledButtonStyle>
+        </SignaturePlanStyle>
+      </SignaturePlansStyle>
+    </ContainerStyle>
   );
 };
 

@@ -12,26 +12,28 @@ import {
 import Home from './components/Home/Home';
 import SignIn from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp';
-import Signature from './components/Signatures/Signature';
+import SignatureOptions from './components/Signatures/SignatureOptions';
+import SignaturePlans from './components/Signatures/SignaturePlans';
+
 import UserContext from './contexts/UserContext';
 
 const App = function () {
   const [userInfo, setUserInfo] = useState(null);
 
-  const userPack = useMemo(() => ({
+  const userInfoState = useMemo(() => ({
     userInfo,
     setUserInfo,
   }), [userInfo]);
 
   return (
     <BrowserRouter>
-      <UserContext.Provider value={userPack}>
+      <UserContext.Provider value={userInfoState}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="sign-in" element={<SignIn />} />
           <Route path="sign-up" element={<SignUp />} />
-          <Route path="signature" element={<Signature />} />
-          <Route path="*" element={<Home />} />
+          <Route path="signature" element={<SignaturePlans />} />
+          <Route path="signature/options" element={<SignatureOptions />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
