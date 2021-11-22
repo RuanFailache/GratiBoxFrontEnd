@@ -90,3 +90,35 @@ export const SignatureDescriptionStyle = styled.p`
   font-weight: 500;
   color: hsla(224, 37%, 48%, 1);
 `;
+
+export const SignatureFormStyle = styled.form`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 30px;
+  gap: 7.5px;
+  box-sizing: border-box;
+`;
+
+export const SignatureInputTextStyle = styled.input`
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 500;
+  background-color: hsla(272, 44%, 87%, .62);
+  color: hsla(224, 37%, 48%, 1);
+  box-sizing: border-box;
+
+  &:nth-child(3), &:nth-child(5) {
+    width: calc(70% - 7.5px);
+  }
+
+  &:nth-child(4), &:nth-child(6) {
+    width: calc(30%);
+  }
+`;

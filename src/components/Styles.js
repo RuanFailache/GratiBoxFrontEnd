@@ -7,7 +7,7 @@ export const ContainerStyle = styled.div`
 `;
 
 export const TitleStyle = styled.header`
-  margin-top: 101px;
+  margin-top: 30px;
   margin-bottom: 30px;
 
   & > h1 {
@@ -54,6 +54,7 @@ export const FilledButtonStyle = styled.button`
   border: none;
   border-radius: 10px;
   background-color: hsla(233, 69%, 73%, 1);
+  transition: .6s;
 
   &, & > a {
     font-size: 18px;
@@ -61,6 +62,10 @@ export const FilledButtonStyle = styled.button`
     font-weight: 500;
     color: hsla(0, 0%, 100%, 1);
     text-decoration: none;
+  }
+
+  &:disabled {
+    opacity: .7;
   }
 `;
 
