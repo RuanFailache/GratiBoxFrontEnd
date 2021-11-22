@@ -37,7 +37,7 @@ const SignatureOptions = function () {
 
   return (
     <ContainerStyle>
-      <Signature text="Agradecer é arte de atrair coisas boas" />
+      <Signature text='"Agradecer é arte de atrair coisas boas"' />
 
       <SignatureOptionsStyle>
         <img src={woman} alt="" />
@@ -64,7 +64,12 @@ const SignatureOptions = function () {
 
       <SignatureControlsStyle>
         <FilledButtonStyle onClick={() => navigate(-1)}>Anterior</FilledButtonStyle>
-        <FilledButtonStyle>Proximo</FilledButtonStyle>
+        <FilledButtonStyle
+          disabled={plan.receive === null || plan.itensDelivery.length === 0}
+          onClick={() => navigate('/signature/address')}
+        >
+          Proximo
+        </FilledButtonStyle>
       </SignatureControlsStyle>
     </ContainerStyle>
   );
